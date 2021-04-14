@@ -7,6 +7,8 @@ using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
 using System.Linq;
+using Business.ValidationRules.FluentValidation;
+using Core.Aspects.Autofac.Validation;
 using Microsoft.EntityFrameworkCore.Internal;
 
 namespace Business.Concrete
@@ -32,6 +34,7 @@ namespace Business.Concrete
             return new SuccessDataResult<Rental>(result);
         }
 
+        [ValidationAspect(typeof(RentalValidator))]
         public IResult Add(Rental rental)
         {
             var result = _rentalDal.GetAll(r => r.CarId == rental.CarId && !r.ReturnDate.HasValue);
