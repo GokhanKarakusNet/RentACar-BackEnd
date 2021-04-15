@@ -1,7 +1,9 @@
 ﻿using System;
 using System.IO;
+using Core.Utilities.Business;
 using Core.Utilities.Results;
 using Microsoft.AspNetCore.Http;
+
 
 public class FileHelper
 {
@@ -72,7 +74,8 @@ public class FileHelper
         {
             return new SuccessResult();
         }
-        return new ErrorResult("File doesn't exists.");
+           
+        return new ErrorResult();
     }
 
 

@@ -57,7 +57,7 @@ namespace Business.Constants
         public static string CarImagesListed = "Araba resmi listelendi";
         public static string CarImageCountOfCarError = "Bir aracın en fazla 5 resmi olabilir";
 
-
         public static string MaintenanceTime="Sistem bakımda";
+        public static string ImageNotFound= "Image not found";
     }
 }

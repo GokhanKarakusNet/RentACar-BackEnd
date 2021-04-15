@@ -66,7 +66,7 @@ namespace Business.Concrete
             var isImage = _carImageDal.Get(c => c.CarImageId == carImage.CarImageId);
             if (isImage == null)
             {
-                return new ErrorResult("Image not found");
+                return new ErrorResult(Messages.ImageNotFound);
             }
 
             var updatedFile = FileHelper.Update(file, isImage.ImagePath);
@@ -76,7 +76,7 @@ namespace Business.Concrete
             }
             carImage.ImagePath = updatedFile.Message;
             _carImageDal.Update(carImage);
-            return new SuccessResult("Car image updated");
+            return new SuccessResult(Messages.CarImageUpdated);
 
         }
 
@@ -85,12 +85,12 @@ namespace Business.Concrete
             var image = _carImageDal.Get(c=>c.CarImageId==carImage.CarImageId);
             if (image == null)
             {
-                return new ErrorResult("Image not found");
+                return new ErrorResult(Messages.ImageNotFound);
             }
 
             FileHelper.Delete(image.ImagePath);
             _carImageDal.Delete(carImage);
-            return new SuccessResult("Image was deleted successfully");
+            return new SuccessResult(Messages.CarImageDeleted);
         }
 
         public IDataResult<List<CarImage>> GetImagesByCarId(int id)
