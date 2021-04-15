@@ -50,6 +50,13 @@ namespace Business.Constants
         public static string RentalsListed = "Kiralamalar listelendi";
         public static string RentalNotComeBack="Araç kiralanmaya uygun değil";
 
+        public static string CarImageAdded = "Araba resmi eklendi";
+        public static string CarImageUpdated = "Araba resmi güncellendi";
+        public static string CarImageDeleted = "Araba resmi silindi";
+        public static string CarImageNameInvalid = "Araba resmi ismi geçersiz";
+        public static string CarImagesListed = "Araba resmi listelendi";
+        public static string CarImageCountOfCarError = "Bir aracın en fazla 5 resmi olabilir";
+
 
         public static string MaintenanceTime="Sistem bakımda";
     }

@@ -40,6 +40,7 @@ namespace Business.Concrete
             var result = _rentalDal.GetAll(r => r.CarId == rental.CarId && !r.ReturnDate.HasValue);
             if (!result.Any())
             {
+                rental.RentDate = DateTime.Now;
                 _rentalDal.Add(rental);
                 return new SuccessResult(Messages.RentalAdded);
             }
