@@ -267,15 +267,15 @@ Project Link: [https://github.com/GokhanKarakusNet/RentACar-BackEnd](https://git
 
 - engindemirog
 
-[contributors-shield]: https://img.shields.io/github/contributors/semihshn/RentaCar-Back-end.svg?style=for-the-badge
-[contributors-url]: https://github.com/semihshn/RentaCar-Back-end/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/semihshn/RentaCar-Back-end.svg?style=for-the-badge
-[forks-url]: https://github.com/semihshn/RentaCar-Back-end/network/members
-[stars-shield]: https://img.shields.io/github/stars/semihshn/RentaCar-Back-end.svg?style=for-the-badge
-[stars-url]: https://github.com/semihshn/RentaCar-Back-end/stargazers
-[issues-shield]: https://img.shields.io/github/issues/semihshn/RentaCar-Back-end.svg?style=for-the-badge
-[issues-url]: https://github.com/semihshn/RentaCar-Back-end/issues
-[license-shield]: https://img.shields.io/github/license/semihshn/RentaCar-Back-end.svg?style=for-the-badge
-[license-url]: https://github.com/semihshn/RentaCar-Back-end
+[contributors-shield]: https://img.shields.io/github/contributors/GokhanKarakusNet/RentACar-BackEnd.svg?style=for-the-badge
+[contributors-url]: https://github.com/GokhanKarakusNet/RentACar-BackEnd/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/GokhanKarakusNet/RentACar-BackEnd.svg?style=for-the-badge
+[forks-url]: https://github.com/GokhanKarakusNet/RentACar-BackEnd/network/members
+[stars-shield]: https://img.shields.io/github/stars/GokhanKarakusNet/RentACar-BackEnd.svg?style=for-the-badge
+[stars-url]: https://github.com/GokhanKarakusNet/RentACar-BackEnd/stargazers
+[issues-shield]: https://img.shields.io/github/issues/GokhanKarakusNet/RentACar-BackEnd.svg?style=for-the-badge
+[issues-url]: https://github.com/GokhanKarakusNet/RentACar-BackEnd/issues
+[license-shield]: https://img.shields.io/github/license/GokhanKarakusNet/RentACar-BackEnd.svg?style=for-the-badge
+[license-url]: https://github.com/GokhanKarakusNet/RentACar-BackEnd
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/gökhan-karakuş-7305a9176
