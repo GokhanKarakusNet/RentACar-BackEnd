@@ -235,6 +235,7 @@ Web API Layer that opens the business layer to the internet.
   * Transaction
   * Validation
   * Caching
+  * Logging
 
 * Entity Framework ORM kullanılarak geliştirildi.
 * **AOP** ile **Cross Cutting Concerns** "kesişen ilgililer" projede modülarite yapıda geliştirildi. 
