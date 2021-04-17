@@ -261,7 +261,7 @@ Web API Layer that opens the business layer to the internet.
 
 Linkedin - [Linkedin](https://linkedin.com/in/gökhan-karakuş-7305a9176)
 
-Project Link: [https://github.com/semihshn/RentaCar-Back-end](https://github.com/semihshn/RentaCar-Back-end)
+Project Link: [https://github.com/GokhanKarakusNet/RentACar-BackEnd](https://github.com/GokhanKarakusNet/RentACar-BackEnd)
 
 ## Acknowledgements
 
