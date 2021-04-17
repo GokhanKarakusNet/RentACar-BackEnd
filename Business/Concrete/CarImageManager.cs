@@ -4,8 +4,10 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using Business.Abstract;
+using Business.BusinessAspects.Autofac;
 using Business.Constants;
 using Business.ValidationRules.FluentValidation;
+using Core.Aspects.Autofac.Caching;
 using Core.Aspects.Autofac.Validation;
 using Core.Utilities.Business;
 using Core.Utilities.Results;
@@ -25,11 +27,13 @@ namespace Business.Concrete
             _carImageDal = carImageDal;
         }
 
+        [CacheAspect]
         public IDataResult<List<CarImage>> GetAll()
         {
             return new SuccessDataResult<List<CarImage>>(_carImageDal.GetAll());
         }
 
+        [CacheAspect]
         public IDataResult<CarImage> Get(int id)
         {
             return new SuccessDataResult<CarImage>(_carImageDal.Get(p => p.CarImageId == id));
@@ -39,6 +43,10 @@ namespace Business.Concrete
         {
             return new SuccessDataResult<List<CarImage>>(_carImageDal.GetAll(c => c.CarId == carId));
         }
+
+
+        [SecuredOperation("admin")]
+        [CacheRemoveAspect("ICarImageService.Get")]
         [ValidationAspect(typeof(CarImageValidator))]
         public IResult Add(IFormFile file, CarImage carImage)
         {
@@ -61,6 +69,9 @@ namespace Business.Concrete
 
         }
 
+
+        [SecuredOperation("admin")]
+        [CacheRemoveAspect("ICarImageService.Get")]
         public IResult Update(IFormFile file, CarImage carImage)
         {
             var isImage = _carImageDal.Get(c => c.CarImageId == carImage.CarImageId);
@@ -80,6 +91,9 @@ namespace Business.Concrete
 
         }
 
+
+        [SecuredOperation("admin")]
+        [CacheRemoveAspect("ICarImageService.Get")]
         public IResult Delete(CarImage carImage)
         {
             var image = _carImageDal.Get(c=>c.CarImageId==carImage.CarImageId);

@@ -7,7 +7,9 @@ using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
 using System.Linq;
+using Business.BusinessAspects.Autofac;
 using Business.ValidationRules.FluentValidation;
+using Core.Aspects.Autofac.Caching;
 using Core.Aspects.Autofac.Validation;
 using Microsoft.EntityFrameworkCore.Internal;
 
@@ -22,18 +24,22 @@ namespace Business.Concrete
             _rentalDal = rentalDal;
         }
 
+        [CacheAspect]
         public IDataResult<List<Rental>> GetAll()
         {
             var result = _rentalDal.GetAll();
             return new SuccessDataResult<List<Rental>>(result,Messages.RentalsListed);
         }
 
+        [CacheAspect]
         public IDataResult<Rental> GetById(int rentalId)
         {
             var result = _rentalDal.Get(r => r.RentalId == rentalId);
             return new SuccessDataResult<Rental>(result);
         }
 
+        [SecuredOperation("admin")]
+        [CacheRemoveAspect("IRentalService.Get")]
         [ValidationAspect(typeof(RentalValidator))]
         public IResult Add(Rental rental)
         {
@@ -49,12 +55,17 @@ namespace Business.Concrete
 
         }
 
+        [ValidationAspect(typeof(RentalValidator))]
+        [SecuredOperation("admin")]
+        [CacheRemoveAspect("IRentalService.Get")]
         public IResult Update(Rental rental)
         {
             _rentalDal.Update(rental);
             return new SuccessResult(Messages.CarUpdated);
         }
 
+        [SecuredOperation("admin")]
+        [CacheRemoveAspect("IRentalService.Get")]
         public IResult Delete(int rentalId)
         {
             _rentalDal.Delete(new Rental { RentalId = rentalId });
