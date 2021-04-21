@@ -11,6 +11,7 @@ using Business.BusinessAspects.Autofac;
 using Business.ValidationRules.FluentValidation;
 using Core.Aspects.Autofac.Caching;
 using Core.Aspects.Autofac.Validation;
+using Entities.DTOs;
 using Microsoft.EntityFrameworkCore.Internal;
 
 namespace Business.Concrete
@@ -36,6 +37,11 @@ namespace Business.Concrete
         {
             var result = _rentalDal.Get(r => r.RentalId == rentalId);
             return new SuccessDataResult<Rental>(result);
+        }
+
+        public IDataResult<List<CarRentalDetailDto>> GetRentalDetails()
+        {
+            return new SuccessDataResult<List<CarRentalDetailDto>>(_rentalDal.GetCarRentalDetails());
         }
 
         [SecuredOperation("admin")]

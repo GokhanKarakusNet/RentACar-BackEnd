@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading;
 using Business.Abstract;
 using Business.BusinessAspects.Autofac;
 using Business.Constants;
@@ -10,6 +11,7 @@ using Core.Aspects.Autofac.Validation;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
+using Entities.DTOs;
 
 namespace Business.Concrete
 {
@@ -33,6 +35,11 @@ namespace Business.Concrete
         {
             return new SuccessDataResult<Customer>(_customerDal.Get(c => c.CustomerId == customerId));
         }
+
+       public IDataResult<List<CustomerDetailDto>> GetCustomerDetails()
+       {
+           return new SuccessDataResult<List<CustomerDetailDto>>(_customerDal.GetCustomerDetails());
+       }
 
         [SecuredOperation("admin")]
         [CacheRemoveAspect("ICustomerService.Get")]
