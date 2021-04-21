@@ -5,6 +5,16 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Include="Resources\Images\a.jpg" />
+    <Content Include="Resources\Images\b.jpg" />
+    <Content Include="Resources\Images\c.jpg" />
+    <Content Include="Resources\Images\d.jpg" />
+    <Content Include="Resources\Images\e.jpg" />
+    <Content Include="Resources\Images\f.jpg" />
+    <Content Include="Resources\Images\g.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="7.1.0" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="3.1.12" />
   </ItemGroup>
@@ -17,7 +27,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="wwwroot\images\" />
+    <Folder Include="wwwroot\" />
   </ItemGroup>
 
 

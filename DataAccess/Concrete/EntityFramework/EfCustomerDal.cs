@@ -24,7 +24,8 @@ namespace DataAccess.Concrete.EntityFramework
                         UserId = usr.Id,
                         FirstName = usr.FirstName,
                         LastName = usr.LastName,
-                        CompanyName = cus.CompanyName
+                        CompanyName = cus.CompanyName,
+                        EMail = usr.Email
                     };
                 return result.ToList();
             }

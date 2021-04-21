@@ -41,7 +41,25 @@ namespace Business.Concrete
 
         public IDataResult<List<CarImage>> GetAllByCarId(int carId)
         {
+            IResult result = BusinessRules.Run(CheckIfCarImageNull(carId));
+
+            if (result != null)
+            {
+                return new ErrorDataResult<List<CarImage>>(result.Message);
+            }
             return new SuccessDataResult<List<CarImage>>(_carImageDal.GetAll(c => c.CarId == carId));
+        }
+
+        public IDataResult<List<CarImage>> GetImagesByCarId(int id)
+        {
+            IResult result = BusinessRules.Run(CheckIfCarImageNull(id));
+
+            if (result != null)
+            {
+                return new ErrorDataResult<List<CarImage>>(result.Message);
+            }
+
+            return new SuccessDataResult<List<CarImage>>(_carImageDal.GetAll(c => c.CarId == id));
         }
 
 
@@ -107,17 +125,7 @@ namespace Business.Concrete
             return new SuccessResult(Messages.CarImageDeleted);
         }
 
-        public IDataResult<List<CarImage>> GetImagesByCarId(int id)
-        {
-            IResult result = BusinessRules.Run(CheckIfCarImageNull(id));
-
-            if (result != null)
-            {
-                return new ErrorDataResult<List<CarImage>>(result.Message);
-            }
-
-            return new SuccessDataResult<List<CarImage>>(CheckIfCarImageNull(id).Data);
-        }
+        
 
         private IResult CheckIfCarImageCountOfCarCorrect(int carId)
         {
@@ -132,7 +140,7 @@ namespace Business.Concrete
         {
             try
             {
-                string path = @"\images\logo.jpg";
+                string path = @"\Resources\Images\g.jpg";
                 var result = _carImageDal.GetAll(c => c.CarId == id).Any();
                 if (!result)
                 {

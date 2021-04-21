@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using Business.Abstract;
 using Business.BusinessAspects.Autofac;
@@ -77,9 +78,9 @@ namespace Business.Concrete
             return new SuccessDataResult<List<Car>>(_carDal.GetAll(c => c.ColorId == id));
         }
 
-        public IDataResult<List<CarDetailDto>> GetCarDetails()
+        public IDataResult<List<CarDetailDto>> GetCarsDetails()
         {
-            return new SuccessDataResult<List<CarDetailDto>>(_carDal.GetCarDetails());
+            return new SuccessDataResult<List<CarDetailDto>>(_carDal.GetCarsDetails());
         }
 
 
@@ -89,6 +90,34 @@ namespace Business.Concrete
             _carDal.Update(car);
             _carDal.Add(car);
             return new SuccessResult(Messages.CarUpdated);
+        }
+
+        public IDataResult<CarDetailDto> GetCarDetails(int carId)
+        {
+            return new SuccessDataResult<CarDetailDto>(_carDal.GetCarsDetails(c => c.CarId == carId).FirstOrDefault());
+        }
+
+        public IDataResult<List<CarDetailDto>> GetAllCarDetailByBrand(int brandId)
+        {
+            return new SuccessDataResult<List<CarDetailDto>>(_carDal.GetCarsDetails(c => c.BrandId == brandId));
+        }
+
+        public IDataResult<List<CarDetailDto>> GetAllCarDetailByColor(int colorId)
+        {
+            return new SuccessDataResult<List<CarDetailDto>>(_carDal.GetCarsDetails(c => c.ColorId == colorId));
+        }
+
+        public IDataResult<List<CarDetailDto>> GetAllCarDetailByBrandAndColor(int brandId, int colorId)
+        {
+            var result = _carDal.GetCarsDetails(c => c.BrandId == brandId && c.ColorId == colorId);
+            if (result.Any())
+            {
+                return new SuccessDataResult<List<CarDetailDto>>(result);
+            }
+            else
+            {
+                return new ErrorDataResult<List<CarDetailDto>>(Messages.NoResultForThisFilter);
+            }
         }
     }
 }
