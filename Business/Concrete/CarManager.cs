@@ -94,22 +94,22 @@ namespace Business.Concrete
 
         public IDataResult<CarDetailDto> GetCarDetails(int carId)
         {
-            return new SuccessDataResult<CarDetailDto>(_carDal.GetCarsDetails(c => c.CarId == carId).FirstOrDefault());
+            return new SuccessDataResult<CarDetailDto>(_carDal.GetWithDetails(carId));
         }
 
         public IDataResult<List<CarDetailDto>> GetAllCarDetailByBrand(int brandId)
         {
-            return new SuccessDataResult<List<CarDetailDto>>(_carDal.GetCarsDetails(c => c.BrandId == brandId));
+            return new SuccessDataResult<List<CarDetailDto>>(_carDal.GetCarsByBrandAndColor(c => c.BrandId == brandId));
         }
 
         public IDataResult<List<CarDetailDto>> GetAllCarDetailByColor(int colorId)
         {
-            return new SuccessDataResult<List<CarDetailDto>>(_carDal.GetCarsDetails(c => c.ColorId == colorId));
+            return new SuccessDataResult<List<CarDetailDto>>(_carDal.GetCarsByBrandAndColor(c => c.ColorId == colorId));
         }
 
         public IDataResult<List<CarDetailDto>> GetAllCarDetailByBrandAndColor(int brandId, int colorId)
         {
-            var result = _carDal.GetCarsDetails(c => c.BrandId == brandId && c.ColorId == colorId);
+            var result = _carDal.GetCarsByBrandAndColor(c => c.BrandId == brandId && c.ColorId == colorId);
             if (result.Any())
             {
                 return new SuccessDataResult<List<CarDetailDto>>(result);

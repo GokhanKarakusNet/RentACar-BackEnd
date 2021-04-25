@@ -93,7 +93,7 @@ namespace ConsoleUI
             //var updatedResult = carManager.Update(new Car{ CarName = "Seat", DailyPrice = 600, Description = "Seat", ModelYear = 2020,CarId = 4,BrandId = 1002,ColorId = 1});
             //var deletedResult = carManager.Delete(5);
             Console.WriteLine(addedResult.Message);
-            var result = carManager.GetCarDetails();
+            var result = carManager.GetCarsDetails();
             if (result.Success == true)
             {
                 foreach (var car in result.Data)

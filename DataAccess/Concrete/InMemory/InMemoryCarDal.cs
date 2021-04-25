@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
+using Core.Entities;
 using DataAccess.Abstract;
 using Entities.Concrete;
 using Entities.DTOs;
@@ -83,6 +84,26 @@ namespace DataAccess.Concrete.InMemory
         public List<Car> GetAll()
         {
             return _cars;
+        }
+
+        public CarDetailDto GetCarDetails(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public CarDetailDto GetWithDetails(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<CarDetailDto> GetCarsDetails(Expression<Func<IDto, bool>> filter = null)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<CarDetailDto> GetCarsByBrandAndColor(Expression<Func<Car, bool>> filter = null)
+        {
+            throw new NotImplementedException();
         }
     }
 }
