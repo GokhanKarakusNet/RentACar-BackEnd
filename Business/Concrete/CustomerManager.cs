@@ -27,7 +27,7 @@ namespace Business.Concrete
        [CacheAspect]
        public IDataResult<List<Customer>> GetAll()
        {
-           return new SuccessDataResult<List<Customer>>(_customerDal.GetAll(), Messages.CustomersListed);
+           return new SuccessDataResult<List<Customer>>(_customerDal.GetAll(), Messages.GetAllCustomersSuccessfully);
        }
 
        [CacheAspect]
@@ -47,7 +47,7 @@ namespace Business.Concrete
         public IResult Add(Customer customer)
         {
             _customerDal.Add(customer);
-            return new SuccessResult(Messages.CustomerAdded);
+            return new SuccessResult(Messages.CustomerAddedSuccessfully);
         }
 
         [SecuredOperation("admin")]
@@ -55,7 +55,7 @@ namespace Business.Concrete
         public IResult Update(Customer customer)
         {
             _customerDal.Update(customer);
-            return new SuccessResult(Messages.CustomerUpdated);
+            return new SuccessResult(Messages.CustomerUpdatedSuccessfully);
         }
 
         [SecuredOperation("admin")]
@@ -63,7 +63,12 @@ namespace Business.Concrete
         public IResult Delete(int customerId)
         {
             _customerDal.Delete(new Customer{CustomerId = customerId});
-            return new SuccessResult(Messages.CustomerDeleted);
+            return new SuccessResult(Messages.CustomerDeletedSuccessfully);
+        }
+
+        public IDataResult<Customer> GetByUserId(int id)
+        {
+            return new SuccessDataResult<Customer>(_customerDal.Get(c => c.UserId == id));
         }
     }
 }

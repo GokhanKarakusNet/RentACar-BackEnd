@@ -9,6 +9,7 @@ using Core.Entities.Concrete;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
+using Entities.DTOs;
 
 namespace Business.Concrete
 {
@@ -21,9 +22,19 @@ namespace Business.Concrete
             _userDal = userDal;
         }
 
+        public IDataResult<UserForDetail> GetForUserDetailById(int id)
+        {
+            return new SuccessDataResult<UserForDetail>(_userDal.GetForUserDetailById(u => u.Id == id));
+        }
+
+        public IResult UpdateUserInfo(User user)
+        {
+            throw new NotImplementedException();
+        }
+
         public IDataResult<List<User>> GetAll()
         {
-            return new SuccessDataResult<List<User>>(_userDal.GetAll(),Messages.UsersListed);
+            return new SuccessDataResult<List<User>>(_userDal.GetAll(),Messages.AllUsersListedSuccessfully);
         }
 
         public IDataResult<User> GetById(int userId)
@@ -35,24 +46,25 @@ namespace Business.Concrete
         public IResult Add(User user)
         {
             _userDal.Add(user);
-            return new SuccessResult(Messages.UserAdded);
+            return new SuccessResult(Messages.UserAddedSuccessfully);
         }
 
         public IResult Update(User user)
         {
             _userDal.Update(user);
-            return new SuccessResult(Messages.UserUpdated);
+            return new SuccessResult(Messages.UserUpdatedSuccessfully);
         }
 
-        public IResult Delete(int userId)
+        public IResult Delete(User user)
         {
-           _userDal.Delete(new User {Id = userId});
-           return new SuccessResult(Messages.UserDeleted);
+            _userDal.Delete(user);
+            return new SuccessResult(Messages.UserDeletedSuccessfully);
         }
 
-        public IDataResult<List<OperationClaim>> GetClaims(User user)
+
+        public IDataResult<List<OperationClaim>> GetClaims(int id)
         {
-            return new SuccessDataResult<List<OperationClaim>>(_userDal.GetClaims(user));
+            return new SuccessDataResult<List<OperationClaim>>(_userDal.GetClaims(id));
         }
 
         public IDataResult<User> GetByMail(string email)

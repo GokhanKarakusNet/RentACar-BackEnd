@@ -6,10 +6,10 @@ namespace Entities.DTOs
     {
         public int CustomerId { get; set; }
         public int UserId { get; set; }
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
+        public string CustomerFullName { get; set; }
         public string EMail { get; set; }
         public string CompanyName { get; set; }
+        public short FindeksScore { get; set; }
 
     }
 }

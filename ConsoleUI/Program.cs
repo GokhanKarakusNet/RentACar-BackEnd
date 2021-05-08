@@ -25,13 +25,13 @@ namespace ConsoleUI
             Console.WriteLine(customerManager.Add(new Customer {CompanyName = "haydar"}).Message);
         }
 
-        private static void RentalTest()
-        {
-            RentalManager rentalManager = new RentalManager(new EfRentalDal());
-            var addedRental = rentalManager.Add(new Rental
-                {CarId = 4, CustomerId = 2, RentDate = DateTime.Now});
-            Console.WriteLine(addedRental.Message);
-        }
+        //private static void RentalTest()
+        //{
+        //    RentalManager rentalManager = new RentalManager(new EfRentalDal());
+        //    var addedRental = rentalManager.Add(new Rental
+        //        {CarId = 4, CustomerId = 2, RentDate = DateTime.Now});
+        //    Console.WriteLine(addedRental.Message);
+        //}
 
         private static void UserTest()
         {
@@ -86,25 +86,25 @@ namespace ConsoleUI
 
         }
 
-        private static void CarTest()
-        {
-            CarManager carManager = new CarManager(new EfCarDal());
-            var addedResult= carManager.Add(new Car {CarName = "deneme",BrandId = 1,ColorId = 2});
-            //var updatedResult = carManager.Update(new Car{ CarName = "Seat", DailyPrice = 600, Description = "Seat", ModelYear = 2020,CarId = 4,BrandId = 1002,ColorId = 1});
-            //var deletedResult = carManager.Delete(5);
-            Console.WriteLine(addedResult.Message);
-            var result = carManager.GetCarsDetails();
-            if (result.Success == true)
-            {
-                foreach (var car in result.Data)
-                {
-                    Console.WriteLine("CarName : {0}, BrandName : {1}, ColorName : {2}, DailyPrice : {3}", car.CarName, car.BrandName, car.ColorName, car.DailyPrice);
-                }
-            }
-            else
-            {
-                Console.WriteLine(result.Message);
-            }
-        }
+        //private static void CarTest()
+        //{
+        //    CarManager carManager = new CarManager(new EfCarDal());
+        //    var addedResult= carManager.Add(new Car {CarName = "deneme",BrandId = 1,ColorId = 2});
+        //    //var updatedResult = carManager.Update(new Car{ CarName = "Seat", DailyPrice = 600, Description = "Seat", ModelYear = 2020,CarId = 4,BrandId = 1002,ColorId = 1});
+        //    //var deletedResult = carManager.Delete(5);
+        //    Console.WriteLine(addedResult.Message);
+        //    var result = carManager.GetCarsDetails();
+        //    if (result.Success == true)
+        //    {
+        //        foreach (var car in result.Data)
+        //        {
+        //            Console.WriteLine("CarName : {0}, BrandName : {1}, ColorName : {2}, DailyPrice : {3}", car.CarName, car.BrandName, car.ColorName, car.DailyPrice);
+        //        }
+        //    }
+        //    else
+        //    {
+        //        Console.WriteLine(result.Message);
+        //    }
+        //}
     }
 }

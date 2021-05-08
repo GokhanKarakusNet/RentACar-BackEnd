@@ -8,8 +8,8 @@ using Microsoft.AspNetCore.Http;
 public class FileHelper
 {
 
-    private static string _currentDirectory = Environment.CurrentDirectory + "\\wwwroot";
-    private static string _folderName = "\\images\\";
+    private static string _currentDirectory = Environment.CurrentDirectory + "\\Resources\\Images\\";
+    private static string _folderName = "";
 
     public static IResult Upload(IFormFile file)
     {

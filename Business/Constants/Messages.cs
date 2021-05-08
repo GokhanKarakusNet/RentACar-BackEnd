@@ -8,65 +8,105 @@ namespace Business.Constants
 {
     public static class Messages
     {
-        public static string CarAdded = "Araç eklendi";
-        public static string CarUpdated = "Araç güncellendi";
-        public static string CarDeleted = "Araç silindi";
-        public static string CarNameInvalid = "Araç ismi geçersiz";
-        public static string CarsListed = "Araçlar listelendi";
+        //Bank
+
+        public static string BankSuccess = "Banka bilgileri başarıyla eklendi";
+
+        // Brand
+        public static string BrandSuccesfullyAdded = "Marka başarıyla eklendi.";
+        public static string BrandSuccesfullyDeleted = "Marka başarıyla silindi";
+        public static string AllBrandsSuccesfullyListed = "Tüm markalar listelendi";
+        public static string GetBrandByIdSuccesfully = "Marka detayları getirildi.";
+        public static string BrandSuccesfullyUpdated = "Marka başarıyla güncellendi";
+
+        //Car
+        public static string CarAddedSuccessfully = "Araç başarıyla eklendi.";
+        public static string CarInvalidDailyPrice = "Günlük araç kira ücreti sıfır olamaz.";
+        public static string InvalidCarName = "Araç ismi en az 2 karakter olmalıdır.";
+        public static string CarDeletedSuccessfully = "Araç başarıyla silindi.";
+        public static string AllCarsListedSuccessfully = "Tüm araçlar başarıyla listelendi.";
+        public static string GetCarByIdSuccessfully = "Araç detayları başarıyla getirildi.";
+        public static string GetCarDetailDtoSuccessfully = "Araç detaylarıyla başarıyla getirildi.";
+        public static string GetCarsByBrandIdSuccessfully = "Markaya göre araç listesi başarıyla getirildi.";
+        public static string GetCarsByColorIdSuccessfully = "Renge göre araç listesi başarıyla getirildi.";
+        public static string CarUpdatedSuccessfully = "Araç başarıyla güncellendi.";
+        public static string GetCarDetailsByBrandIdSuccessfully = "Marka bilgisine göre araç detayları başarıyla getirildi.";
+        public static string GetCarDetailsByColorIdSuccessfully = "Renk bilgisine göre araç detayları başarıyla getirildi.";
+
+        //Color
+        public static string ColorAddedSuccessfully = "Renk başarıyla eklendi";
+        public static string ColorDeletedSuccessfully = "Renk başarıyla silindi";
+        public static string GetAllColorsSuccessfully = "Tüm renkler başarıyla listelendi";
+        public static string GetColorByIdSuccessfully = "Renk detayları başarıyla getirildi.";
+
+        //User
+        public static string ColorUpdatedSuccessfully = "Renk başarıyla güncellendi.";
+        public static string UserAddedSuccessfully = "Kullanıcı başarıyla eklendi.";
+        public static string UserDeletedSuccessfully = "Kullanıcı başarıyla silindi";
+        public static string AllUsersListedSuccessfully = "Tüm kullanıcılar başarıyla listeledi";
+        public static string GetUserByIdSuccessfully = "Kullanıcı detayları başarıyla getirildi.";
+        public static string GetUserClaimsSuccessfully = "Kullanıcı rolleri başarıyla getirildi.";
 
 
+        //Customer
+        public static string UserUpdatedSuccessfully = "Kullanıcı başarıyla güncellendi.";
+        public static string CustomerAddedSuccessfully = "Müşteri başarıyla eklendi.";
+        public static string CustomerDeletedSuccessfully = "Müşteri başarıyla silindi.";
+        public static string GetAllCustomersSuccessfully = "Tüm müşteriler başarıyla listelendi.";
+        public static string GetCustomerByIdSuccessfully = "Müşteri detayları başarıyla getirildi.";
+        public static string CustomerUpdatedSuccessfully = "Müşteri başarıyla güncellendi.";
 
-        public static string BrandAdded = "Marka eklendi";
-        public static string BrandUpdated = "Marka güncellendi";
-        public static string BrandDeleted = "Marka silindi";
-        public static string BrandNameInvalid = "Marka ismi geçersiz";
-        public static string BrandsListed = "Markalar listelendi";
+        //Rental
+        public static string InvalidReturnDate = "Geçersiz geri dönüş tarihi.";
+        public static string RentalAddedSuccessfully = "Araç başarıyla kiralandı";
+        public static string RentalDeletedSuccessfully = "Kira işlemi başarıyla silindi.";
+        public static string GetAllRentalsSuccessfully = "Tüm kiralama işlemleri başarıyla listelendi.";
+        public static string GetRentalByIdSuccessfully = "Kira detayları başarıyla getirildi.";
+        public static string RentalUpdatedSuccessfully = "Kira işlemi başarıyla güncellendi.";
+        public static string RentDetailsListedSuccessfully = "Kira detayları listesi başarıyla getirildi.";
+        public static string RentalDateError = "Belirtilen tarihler kira için uygun değildir.";
+        public static string CarIsRentable = "Araç belirtilen tarihler arasında kiralamaya uygundur. Kiralama işlemini tamamlamak için sonraki adıma ilerleyebilirsiniz.";
+        public static string NotEnoughFindeks = "Bu aracı kiralayabilmek için yeterince puanınız bulunmuyor.";
 
+        //CarImage
+        public static string ImageAddedSuccessfully = "Resim başarıyla eklendi.";
+        public static string ImageDeletedSuccessfully = "Resim başarıyla silindi.";
+        public static string ImageUpdatedSuccessfully = "Resim başarıyla güncellendi.";
+        public static string MaksimumImageLimitReached = "Bir araç için izin verilen en fazla resim sayısına ulaştınız.";
 
+        //Auth
+        public static string UserNotFound = "Kullanıcı bulunamadı.";
+        public static string PasswordError = "Şifre hatalı.";
+        public static string LoginSuccessfull = "Giriş başarılı";
+        public static string UserAlreadyExists = "Bu kullanıcı zaten mevcut.";
+        public static string UserRegistered = "Kullanıcı başarıyla kaydedildi.";
+        public static string AccessTokenCreated = "Access Token başarıyla oluşturuldu.";
+        public static string AuthorizationDenied = "Yetkiniz yok.";
 
-        public static string ColorAdded = "Renk eklendi";
-        public static string ColorUpdated = "Renk güncellendi";
-        public static string ColorDeleted = "Renk silindi";
-        public static string ColorNameInvalid = "Renk ismi geçersiz";
-        public static string ColorsListed = "Renkler listelendi";
+        //CreditCard
+        public static string CreditCardAddedSuccessfully = "Kredi kaınız başarıyla kaydedilmiştir.";
+        public static string CreditCardDeletedSuccessfully = "Kredi kartınız sistemden başarı ile silinmiştir.";
+        public static string GetCreditCardByCardIdSuccessfully = "Kart detayları başarıyla getirildi.";
+        public static string GetAllCreditCardsSuccessfully = "Tüm kredi kartları başarıyla getirildi.";
+        public static string GetUserCardListSuccessfully = "Kullanıcının tüm kartları başarıyla getirildi.";
+        public static string GetCreditCardByCardTypeIdSuccessfully = "Kart tipine göre karlar başarı ile listelendi.";
 
+        //CreditCardType
+        public static string CardTypeAddedSuccessfully = "Kart tipi başarı ile eklendi.";
+        public static string CardTypeUpdatedSuccessfully = "Kart tipi başarıyla güncellendi.";
+        public static string CardTypeDeletedSuccessfully = "Kart tipi başarıyla silindi.";
+        public static string GetAllCardTypesSuccessfully = "Tüm kart tipleri başarı ile listelendi";
+        public static string GetTypeByIdSuccessfully = "Kart tipi detayları başarıyla listelendi.";
+        public static string SelectedCardGetsSuccessfully = "Müşterinin 'öncelikli' olarak tanımlanmış kartı başarı ile getirildi. ";
 
-        public static string UserAdded = "Kullanıcı eklendi";
-        public static string UserUpdated ="Kullanıcı güncellendi";
-        public static string UserDeleted ="Kullanıcı silindi";
-        public static string UserNameInvalid = "Kullanıcı ismi geçersiz";
-        public static string UsersListed = "Kullanıcılar listelendi";
+        //Payment
+        public static string PaymentSuccessfull = "Ödeme başarı ile tamamlandı.";
+        public static string PaymentError = "Ödeme sırasında bir hata oluştu";
 
-
-        public static string CustomerAdded = "Müşteri eklendi";
-        public static string CustomerUpdated = "Müşteri güncellendi";
-        public static string CustomerDeleted = "Müşteri silindi";
-        public static string CustomerNameInvalid = "Müşteri ismi geçersiz";
-        public static string CustomersListed = "Müşteriler listelendi";
-
-        public static string RentalAdded = "Kiralama eklendi";
-        public static string RentalUpdated = "Kiralama güncellendi";
-        public static string RentalDeleted = "Kiralama silindi";
-        public static string RentalNameInvalid = "Kiralama ismi geçersiz";
-        public static string RentalsListed = "Kiralamalar listelendi";
-        public static string RentalNotComeBack="Araç kiralanmaya uygun değil";
-
-        public static string CarImageAdded = "Araba resmi eklendi";
-        public static string CarImageUpdated = "Araba resmi güncellendi";
-        public static string CarImageDeleted = "Araba resmi silindi";
-        public static string CarImageNameInvalid = "Araba resmi ismi geçersiz";
-        public static string CarImagesListed = "Araba resmi listelendi";
-        public static string CarImageCountOfCarError = "Bir aracın en fazla 5 resmi olabilir";
-
-        public static string MaintenanceTime="Sistem bakımda";
-        public static string ImageNotFound= "Image not found";
-        public static string AuthorizationDenied = "Yetkiniz yok";
-        public static string UserNotFound = "Kullanıcı bulunamadı";
-        public static string PasswordError = "Şifre hatalı";
-        public static string SuccessfulLogin = "Sisteme giriş başarılı";
-        public static string UserAlreadyExists = "Bu kullanıcı zaten mevcut";
-        public static string UserRegistered = "Kullanıcı başarıyla kaydedildi";
-        public static string AccessTokenCreated = "Access token başarıyla oluşturuldu";
-        public static string NoResultForThisFilter = "Bu filtre için sonuç dönmedi";
+        //Findex
+        public static string UserHasFindexAlreadyExist = "Kullanıcıya tanımlı Findex bilgisi bulunmaktadır.";
+        public static string UserHasNoFindex = "Kullanıcıya tanımlı Findex bilgisi bulunmamaktadır.";
+        public static string FindexAdded = "Findex puanı başarıyla eklendi";
+        public static string FindexIsEnough = "Yeterli findeks puanına sahipsiniz.";
     }
 }

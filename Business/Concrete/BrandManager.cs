@@ -40,7 +40,7 @@ namespace Business.Concrete
         public IResult Add(Brand brand)
         {
             _brandDal.Add(brand);
-            return new SuccessResult(Messages.BrandAdded);
+            return new SuccessResult(Messages.BrandSuccesfullyAdded);
         }
 
         [SecuredOperation("admin")]
@@ -49,15 +49,15 @@ namespace Business.Concrete
         public IResult Update(Brand brand)
         {
             _brandDal.Update(brand);
-            return new SuccessResult(Messages.BrandUpdated);
+            return new SuccessResult(Messages.BrandSuccesfullyUpdated);
         }
 
         [SecuredOperation("admin")]
         [CacheRemoveAspect("IBrandService.Get")]
-        public IResult Delete(int brandId)
+        public IResult Delete(Brand brand)
         {
-            _brandDal.Delete(new Brand { BrandId = brandId });
-            return new SuccessResult(Messages.BrandDeleted);
+            _brandDal.Delete(brand);
+            return new SuccessResult(Messages.BrandSuccesfullyDeleted);
         }
     }
 }

@@ -19,7 +19,8 @@ namespace WebAPI.Controllers
         {
             _customerService = customerService;
         }
-        [HttpGet("getall")]
+
+        [HttpGet]
         public IActionResult GetAll()
         {
             var result = _customerService.GetAll();
@@ -27,6 +28,7 @@ namespace WebAPI.Controllers
             {
                 return Ok(result);
             }
+
             return BadRequest(result);
         }
 
@@ -43,7 +45,7 @@ namespace WebAPI.Controllers
             return BadRequest(result);
         }
 
-        [HttpGet("getbyid")]
+        [HttpGet("{id}")]
         public IActionResult GetById(int id)
         {
             var result = _customerService.GetById(id);
@@ -51,8 +53,23 @@ namespace WebAPI.Controllers
             {
                 return Ok(result);
             }
+
             return BadRequest(result);
         }
+
+        [HttpGet("getbyuserid/{id}")]
+        public IActionResult GetByUserId(int id)
+        {
+            var result = _customerService.GetByUserId(id);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+
+            return BadRequest(result);
+        }
+
+
         [HttpPost("add")]
         public IActionResult Add(Customer customer)
         {

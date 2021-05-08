@@ -18,14 +18,15 @@ namespace DataAccess.Concrete.EntityFramework
             {
                 var result = from cus in filter is null ? context.Customers : context.Customers.Where(filter)
                     join usr in context.Users on cus.UserId equals usr.Id
+                    join findeks in context.Findeks on cus.UserId equals findeks.UserId
                     select new CustomerDetailDto
                     {
                         CustomerId = cus.CustomerId,
                         UserId = usr.Id,
-                        FirstName = usr.FirstName,
-                        LastName = usr.LastName,
+                        CustomerFullName = $"{usr.FirstName} {usr.LastName}",
                         CompanyName = cus.CompanyName,
-                        EMail = usr.Email
+                        EMail = usr.Email,
+                        FindeksScore = findeks.FindeksValue
                     };
                 return result.ToList();
             }

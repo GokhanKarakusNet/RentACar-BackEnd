@@ -13,12 +13,13 @@ namespace WebAPI.Controllers
     [ApiController]
     public class RentalsController : ControllerBase
     {
-        private IRentalService _rentalService;
+        private readonly IRentalService _rentalService;
 
         public RentalsController(IRentalService rentalService)
         {
             _rentalService = rentalService;
         }
+
         [HttpGet("getall")]
         public IActionResult GetAll()
         {
@@ -27,18 +28,21 @@ namespace WebAPI.Controllers
             {
                 return Ok(result);
             }
+
             return BadRequest(result);
         }
 
-
-        [HttpGet("getrentaldetails")]
-        public IActionResult GetRentalDetails()
+        [HttpGet("getrentalsdetailslist")]
+        public IActionResult GetRentalDetailsList()
         {
             var result = _rentalService.GetRentalDetails();
-            if (result.Success) { return Ok(result); }
-            return BadRequest();
-        }
+            if (result.Success)
+            {
+                return Ok(result);
+            }
 
+            return BadRequest(result);
+        }
 
         [HttpGet("getbyid")]
         public IActionResult GetById(int id)
@@ -48,16 +52,41 @@ namespace WebAPI.Controllers
             {
                 return Ok(result);
             }
+
             return BadRequest(result);
         }
-        [HttpPost("add")]
-        public IActionResult Add(Rental rental)
+
+        [HttpPost("checkrentability")]
+        public IActionResult CheckRentability(Rental rental)
         {
-            var result = _rentalService.Add(rental);
+            var result = _rentalService.CheckRentability(rental);
             if (result.Success)
             {
                 return Ok(result);
             }
+
+            return BadRequest(result);
+        }
+
+        [HttpPost("checkiffindeksscoreenough")]
+        public IActionResult CheckFindeksScoreSufficiency(string nationalId,int carId)
+        {
+            var result = _rentalService.CheckIfFindeksScoreEnough(nationalId,carId);
+            if (result.Success) return Ok(result);
+
+            return BadRequest(result);
+        }
+
+
+        [HttpPost("add")]
+        public IActionResult Add(Rental rental,string nationalId)
+        {
+            var result = _rentalService.Add(rental, nationalId);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+
             return BadRequest(result);
         }
         [HttpPost("update")]
@@ -68,16 +97,18 @@ namespace WebAPI.Controllers
             {
                 return Ok(result);
             }
+
             return BadRequest(result);
         }
         [HttpPost("delete")]
-        public IActionResult Delete(int id)
+        public IActionResult Delete(Rental rental)
         {
-            var result = _rentalService.Delete(id);
+            var result = _rentalService.Delete(rental);
             if (result.Success)
             {
                 return Ok(result);
             }
+
             return BadRequest(result);
         }
     }

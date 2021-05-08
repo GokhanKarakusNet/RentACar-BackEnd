@@ -34,31 +34,32 @@ namespace Business.Concrete
             return new SuccessDataResult<Color>(_colorDal.Get(c => c.ColorId == colorId));
         }
 
-        [SecuredOperation("admin")]
+        [SecuredOperation("admin,editor,color.add")]
         [CacheRemoveAspect("IColorService.Get")]
         [ValidationAspect(typeof(ColorValidator))]
         public IResult Add(Color color)
         {
             _colorDal.Add(color);
-            return new SuccessResult(Messages.ColorAdded);
+            return new SuccessResult(Messages.ColorAddedSuccessfully);
         }
 
 
-        [SecuredOperation("admin")]
+        // [SecuredOperation("admin")]
+        [ValidationAspect(typeof(ColorValidator))]
         [CacheRemoveAspect("IColorService.Get")]
         public IResult Update(Color color)
         {
             _colorDal.Update(color);
-            return new SuccessResult(Messages.ColorUpdated);
+            return new SuccessResult(Messages.ColorUpdatedSuccessfully);
         }
 
 
         [SecuredOperation("admin")]
         [CacheRemoveAspect("IColorService.Get")]
-        public IResult Delete(int colorId)
+        public IResult Delete(Color color)
         {
-            _colorDal.Delete(new Color{ColorId = colorId});
-            return new SuccessResult(Messages.ColorDeleted);
+            _colorDal.Delete(color);
+            return new SuccessResult(Messages.ColorDeletedSuccessfully);
         }
     }
 }
