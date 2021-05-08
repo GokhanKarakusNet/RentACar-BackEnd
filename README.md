@@ -72,7 +72,7 @@
       
    </li>
     <li>
-    <a href="#">Front-End Hazırlanıyor</a>
+     <a href="https://github.com/GokhanKarakusNet/RentACar-FrontEnd">Front-End</a>
       <ul>
         <li>Angular 11</li>
       </ul>
